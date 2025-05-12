@@ -1,0 +1,30 @@
+
+services:
+  db:
+    image: postgres:15
+    container_name: postgres-db
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    environment:
+      POSTGRES_DB: workout_db
+      POSTGRES_USER: workout_user
+      POSTGRES_PASSWORD: workout_pass
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+
+  web:
+    build: .
+    container_name: django-app
+    command: gunicorn workoutlog.wsgi:application --bind 0.0.0.0:8000 --reload
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    env_file:
+      - .env
+
+volumes:
+  postgres_data:

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block 'content' %}
+  <div class="container py-5">
+    <div class="text-center mb-5">
+      <h1 class="display-5">Welcome to WorkoutLog some changes</h1>
+      <p class="lead">Track your workouts, monitor your progress, and stay fit.</p>
+    </div>
+    {% if user.is_authenticated %}
+      <div class="row g-4">
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+              <h5 class="card-title">Log a Workout</h5>
+              <p class="card-text">Record a new workout session.</p>
+              <a href="{% url 'log_workout' %}" class="btn btn-primary">Log Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+              <h5 class="card-title">Workout History</h5>
+              <p class="card-text">Review your past workouts and stats.</p>
+              <a href="{% url 'workout_history' %}" class="btn btn-secondary">View History</a>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="card shadow-sm h-100">
+            <div class="card-body text-center">
+              <h5 class="card-title">Your Profile</h5>
+              <p class="card-text">Update your account or settings.</p>
+              <a href="{% url 'profile' %}" class="btn btn-outline-light">Profile</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    {% else %}
+      <div class="text-center mt-4">
+        <a href="{% url 'login' %}" class="btn btn-primary btn-lg">Get Started</a>
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

@@ -1,0 +1,23 @@
+[project]
+name = "workoutlog"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "django>=5.2.1",
+    "django-stubs>=5.2.0",
+    "django-widget-tweaks>=1.5.0",
+    "gunicorn>=23.0.0",
+    "psycopg2-binary>=2.9.10",
+]
+
+[tool.tomlscript] 
+# runserver 
+dev = "uv run manage.py runserver" 
+# manage.py 
+manage = "uv run manage.py" 
+# makemigrations and migrate 
+migrate = "uv run manage.py makemigrations && uv run manage.py migrate" 
+# startapp 
+startapp = "uv run manage.py startapp"
