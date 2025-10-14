@@ -36,7 +36,7 @@ A simple Django web app to log, manage, and review your workouts. Built with use
 ### 💻 Local Setup (without Docker)
 
 ```bash
-git clone https://github.com/ShivangSrivastava/workout-tracker.git
+git clone https://github.com/shv-ng/workout-tracker.git
 cd workout-tracker
 python -m venv .venv
 source .venv/bin/activate
@@ -109,4 +109,4 @@ DB_PORT=5432
 
 ## 🙋 Author
 
-Made by [Shivang Srivastava](https://github.com/ShivangSrivastava)
+Made by [Shivang Srivastava](https://github.com/shv-ng)
